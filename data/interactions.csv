@@ -1,0 +1,63 @@
+drug1,drug2,severity,description,mechanism
+Warfarin,Aspirin,dangerous,Increased bleeding risk - both drugs inhibit clotting; can cause severe hemorrhage,Additive anticoagulant and antiplatelet effects
+Warfarin,Ibuprofen,dangerous,Serious bleeding risk; NSAIDs displace warfarin from plasma proteins increasing free drug levels,Protein displacement and GI mucosal damage
+Warfarin,Naproxen,dangerous,High bleeding risk; NSAIDs inhibit platelet aggregation and can cause GI bleeding,Additive anticoagulant effect and GI irritation
+Warfarin,Metronidazole,dangerous,Metronidazole inhibits warfarin metabolism causing elevated INR and bleeding,CYP2C9 inhibition
+Warfarin,Fluconazole,dangerous,Fluconazole strongly inhibits warfarin metabolism leading to excessive anticoagulation,CYP2C9 inhibition
+Metformin,Alcohol,caution,Risk of lactic acidosis; alcohol potentiates metformin's effect on lactate metabolism,Impaired lactate clearance
+Metformin,Contrast Dye,dangerous,Risk of acute kidney injury and lactic acidosis when contrast media is administered,Renal function impairment
+Lisinopril,Potassium,caution,Risk of hyperkalemia; ACE inhibitors retain potassium and supplements worsen this,Additive potassium retention
+Lisinopril,Spironolactone,caution,Both drugs raise potassium levels; combination can cause dangerous hyperkalemia,Additive potassium-sparing effects
+Lisinopril,NSAIDs,caution,NSAIDs reduce ACE inhibitor effectiveness and may worsen renal function,Prostaglandin inhibition reducing renal blood flow
+Simvastatin,Amiodarone,dangerous,Amiodarone dramatically increases simvastatin levels causing myopathy or rhabdomyolysis,CYP3A4 inhibition
+Simvastatin,Clarithromycin,dangerous,Strong CYP3A4 inhibition leads to simvastatin toxicity including rhabdomyolysis,CYP3A4 inhibition
+Simvastatin,Erythromycin,dangerous,Erythromycin inhibits statin metabolism causing toxic accumulation in muscle tissue,CYP3A4 inhibition
+Simvastatin,Grapefruit,caution,Grapefruit inhibits intestinal CYP3A4 raising simvastatin blood levels,Intestinal CYP3A4 inhibition
+Atorvastatin,Clarithromycin,caution,Clarithromycin raises atorvastatin levels increasing muscle toxicity risk,CYP3A4 inhibition
+Atorvastatin,Grapefruit,caution,Moderate increase in atorvastatin exposure with high grapefruit consumption,Intestinal CYP3A4 inhibition
+Aspirin,Ibuprofen,caution,Ibuprofen can block aspirin's cardioprotective effects if taken simultaneously,Competitive COX-1 binding
+Aspirin,Naproxen,caution,NSAIDs may reduce aspirin's antiplatelet effect; also increased GI bleeding risk,Competitive COX-1 binding
+Clopidogrel,Omeprazole,caution,Omeprazole reduces clopidogrel activation increasing cardiovascular event risk,CYP2C19 inhibition
+Clopidogrel,Aspirin,caution,Increased bleeding risk; though combination is sometimes intentionally prescribed,Additive antiplatelet effects
+SSRIs,Tramadol,dangerous,Risk of serotonin syndrome; can cause fever agitation and life-threatening hyperthermia,Additive serotonergic activity
+SSRIs,MAOIs,dangerous,Potentially fatal serotonin syndrome; fever rigidity autonomic instability and death,Severe serotonin excess
+SSRIs,Triptans,caution,Possible serotonin syndrome; headache treatment may interact with antidepressant,Additive serotonergic activity
+Fluoxetine,Codeine,caution,Fluoxetine blocks codeine conversion to morphine reducing efficacy,CYP2D6 inhibition
+Fluoxetine,Tamoxifen,dangerous,Fluoxetine reduces tamoxifen's active metabolite drastically reducing breast cancer protection,CYP2D6 inhibition
+Ciprofloxacin,Antacids,caution,Antacids chelate ciprofloxacin reducing absorption by up to 90%; give 2hrs apart,Chelation reducing drug absorption
+Ciprofloxacin,Warfarin,caution,Ciprofloxacin inhibits warfarin metabolism and reduces gut bacteria producing vitamin K,CYP1A2 inhibition and gut flora alteration
+Methotrexate,NSAIDs,dangerous,NSAIDs reduce methotrexate clearance causing toxic accumulation and severe bone marrow suppression,Reduced renal tubular secretion
+Methotrexate,Trimethoprim,dangerous,Both drugs inhibit dihydrofolate reductase causing additive folate deficiency and toxicity,Additive antifolate effects
+Digoxin,Amiodarone,dangerous,Amiodarone increases digoxin levels by 70-100% causing digitalis toxicity,P-glycoprotein inhibition and renal clearance reduction
+Digoxin,Clarithromycin,dangerous,Clarithromycin increases digoxin absorption and decreases elimination causing toxicity,P-glycoprotein inhibition
+Digoxin,Verapamil,dangerous,Verapamil increases digoxin levels and both slow heart rate causing bradycardia,P-glycoprotein inhibition and additive AV node effects
+Lithium,NSAIDs,dangerous,NSAIDs reduce renal lithium clearance causing lithium toxicity with tremor and confusion,Reduced renal prostaglandin synthesis
+Lithium,Diuretics,dangerous,Diuretics cause sodium depletion leading to compensatory lithium reabsorption and toxicity,Sodium-lithium renal transport competition
+Phenytoin,Carbamazepine,caution,Unpredictable bidirectional interaction; both can increase or decrease each other's levels,Complex CYP induction and inhibition
+Phenytoin,Fluconazole,dangerous,Fluconazole dramatically increases phenytoin causing toxicity with ataxia and nystagmus,CYP2C9 inhibition
+Carbamazepine,Oral Contraceptives,dangerous,Carbamazepine induces liver enzymes reducing contraceptive effectiveness causing unintended pregnancy,CYP3A4 induction
+Rifampicin,Oral Contraceptives,dangerous,Rifampicin is a potent enzyme inducer reducing hormonal contraceptive levels by 50-80%,Broad CYP induction
+Rifampicin,Warfarin,dangerous,Rifampicin dramatically increases warfarin metabolism causing loss of anticoagulation,CYP2C9 induction
+Alcohol,Acetaminophen,dangerous,Chronic alcohol use induces CYP2E1 producing toxic acetaminophen metabolites causing liver failure,CYP2E1 induction and glutathione depletion
+Alcohol,Metronidazole,dangerous,Disulfiram-like reaction causing severe flushing nausea vomiting and tachycardia,Aldehyde dehydrogenase inhibition
+Alcohol,Benzodiazepines,dangerous,Additive CNS depression causing respiratory depression coma and death,Additive GABA enhancement
+Opioids,Benzodiazepines,dangerous,High risk of fatal respiratory depression; FDA black box warning for this combination,Additive CNS and respiratory depression
+Opioids,Alcohol,dangerous,Additive CNS depression with high risk of respiratory failure and death,Additive CNS depression
+Sildenafil,Nitrates,dangerous,Profound life-threatening hypotension; systolic BP can drop below 85 mmHg,Additive cGMP elevation causing vasodilation
+Sildenafil,Alpha Blockers,caution,Risk of symptomatic hypotension and fainting particularly with first dose,Additive vasodilatory effects
+Tamsulosin,Sildenafil,caution,Additive vasodilation can cause dizziness and orthostatic hypotension,Additive alpha-1 blockade
+Amlodipine,Simvastatin,caution,Amlodipine increases simvastatin exposure by about 77% raising myopathy risk,CYP3A4 inhibition
+Verapamil,Metoprolol,caution,Additive effects on heart rate and conduction; risk of bradycardia and heart block,Additive AV nodal blockade
+Diltiazem,Metoprolol,caution,Both slow heart rate; combination can cause significant bradycardia or heart block,Additive chronotropic effects
+Metoprolol,Verapamil,caution,Risk of symptomatic bradycardia and heart block especially in elderly patients,Additive AV node depression
+ACE Inhibitors,ARBs,caution,Dual blockade of renin-angiotensin system increases risk of hypotension and renal impairment,Excessive RAAS blockade
+Allopurinol,Azathioprine,dangerous,Allopurinol blocks azathioprine metabolism causing severe bone marrow toxicity,Xanthine oxidase inhibition increasing 6-MP levels
+Allopurinol,Mercaptopurine,dangerous,Same mechanism as azathioprine interaction; reduce mercaptopurine dose by 75%,Xanthine oxidase inhibition
+Quinolones,Antacids,caution,Antacids containing aluminum or magnesium chelate quinolone antibiotics reducing absorption,Metal chelation
+Tetracycline,Calcium,caution,Calcium chelates tetracycline in gut reducing absorption by up to 50%,Chelation reducing drug absorption
+Tetracycline,Iron,caution,Iron salts chelate tetracycline reducing both drugs' absorption,Chelation reducing drug absorption
+Levothyroxine,Calcium,caution,Calcium carbonate reduces levothyroxine absorption; separate doses by 4 hours,Physical adsorption in GI tract
+Levothyroxine,Iron,caution,Iron significantly reduces levothyroxine absorption; take thyroid hormone 4h before iron,Physical adsorption in GI tract
+Azithromycin,Warfarin,caution,Azithromycin can potentiate warfarin anticoagulation through unknown mechanism,Possible gut flora alteration
+Azithromycin,QT-Prolonging Drugs,dangerous,Additive QT prolongation risk with cardiac arrhythmia risk including torsades de pointes,Additive cardiac ion channel blockade
+Haloperidol,QT-Prolonging Drugs,dangerous,Additive QT prolongation with risk of fatal ventricular arrhythmias,Additive hERG channel blockade

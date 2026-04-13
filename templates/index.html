@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Drug Interaction Checker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div class="bg-grid"></div>
+
+<div class="container">
+  <!-- Header -->
+  <header class="header">
+    <div class="header-icon">
+      <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="8" y="4" width="32" height="40" rx="4" fill="currentColor" opacity="0.15"/>
+        <rect x="20" y="4" width="8" height="8" rx="2" fill="currentColor"/>
+        <line x1="16" y1="22" x2="32" y2="22" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="24" y1="14" x2="24" y2="30" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+        <circle cx="24" cy="36" r="3" fill="currentColor" opacity="0.6"/>
+      </svg>
+    </div>
+    <div class="header-text">
+      <h1>Drug Interaction<br><span class="accent">Checker</span></h1>
+      <p>Select multiple medications to analyze potential interactions and safety concerns</p>
+    </div>
+  </header>
+
+  <!-- Main Layout -->
+  <div class="main-layout">
+
+    <!-- Drug Selector Panel -->
+    <aside class="panel selector-panel">
+      <div class="panel-header">
+        <span class="panel-tag">01</span>
+        <h2>Select Medications</h2>
+      </div>
+
+      <div class="search-wrap">
+        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+        </svg>
+        <input type="text" id="searchInput" placeholder="Search drug name..." />
+      </div>
+
+      <div class="drug-list" id="drugList">
+        {% for drug in drugs %}
+        <label class="drug-item" data-drug="{{ drug }}">
+          <input type="checkbox" value="{{ drug }}" onchange="toggleDrug(this)">
+          <span class="drug-name">{{ drug }}</span>
+          <span class="check-icon">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="3 8 7 12 13 4"/>
+            </svg>
+          </span>
+        </label>
+        {% endfor %}
+      </div>
+
+      <!-- Selected chips -->
+      <div class="selected-section">
+        <div class="selected-label">Selected <span id="selectedCount">0</span></div>
+        <div class="chips" id="chips"></div>
+      </div>
+
+      <button class="check-btn" id="checkBtn" onclick="checkInteractions()" disabled>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+        </svg>
+        Analyze Interactions
+      </button>
+    </aside>
+
+    <!-- Results Panel -->
+    <main class="panel results-panel" id="resultsPanel">
+
+      <!-- Empty state -->
+      <div class="empty-state" id="emptyState">
+        <div class="empty-icon">
+          <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="40" cy="40" r="36" fill="currentColor" opacity="0.06"/>
+            <circle cx="40" cy="40" r="24" fill="currentColor" opacity="0.08"/>
+            <path d="M28 40h24M40 28v24" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3>No Analysis Yet</h3>
+        <p>Select 2 or more medications from the list<br>and click "Analyze Interactions"</p>
+        <div class="legend">
+          <div class="legend-item"><span class="badge safe">SAFE</span> No known interaction</div>
+          <div class="legend-item"><span class="badge caution">CAUTION</span> Monitor closely</div>
+          <div class="legend-item"><span class="badge dangerous">DANGEROUS</span> Avoid combination</div>
+        </div>
+      </div>
+
+      <!-- Results content -->
+      <div class="results-content" id="resultsContent" style="display:none">
+
+        <!-- Overall verdict -->
+        <div class="verdict-card" id="verdictCard">
+          <div class="verdict-icon" id="verdictIcon"></div>
+          <div class="verdict-info">
+            <div class="verdict-label">Overall Safety Assessment</div>
+            <div class="verdict-status" id="verdictStatus"></div>
+            <div class="verdict-meta" id="verdictMeta"></div>
+          </div>
+          <div class="verdict-badge-wrap">
+            <span class="verdict-badge" id="verdictBadge"></span>
+          </div>
+        </div>
+
+        <!-- Interactions list -->
+        <div class="section-title">
+          <span class="panel-tag" id="interactionCount">0</span>
+          <h3>Interaction Details</h3>
+        </div>
+        <div id="interactionsList"></div>
+
+        <!-- Alternatives -->
+        <div id="alternativesSection" style="display:none">
+          <div class="section-title">
+            <span class="panel-tag alt-tag">ALT</span>
+            <h3>Suggested Alternatives</h3>
+          </div>
+          <div id="alternativesList"></div>
+        </div>
+
+        <!-- Safe message -->
+        <div id="safeMessage" style="display:none">
+          <div class="safe-card">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            <div>
+              <strong>No known interactions detected</strong>
+              <p>The selected medications appear safe to use together. Always consult your healthcare provider.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Loading -->
+      <div class="loading" id="loadingState" style="display:none">
+        <div class="spinner"></div>
+        <p>Analyzing drug interactions…</p>
+      </div>
+
+    </main>
+  </div>
+
+  <footer class="footer">
+    ⚠️ For educational purposes only. Always consult a licensed healthcare professional before making medication decisions.
+  </footer>
+</div>
+
+<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
